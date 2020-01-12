@@ -1,27 +1,25 @@
 const express = require('express');
-const Model = require('../db/model.js');
 const yelp = require('yelp-fusion');
-const yelpAPI - require('../../data/yelpAPIKey.js')
+const yelpAPI = require('../data/yelpAPIKey.js')
 
 const app = express();
-const port = 3002;
+const port = 3000;
 
-app.use(express.static(`${__dirname}/../public/dist`));
+app.use(express.static(`${__dirname}/../public`));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const client = yelp.client(yelpAPI.key);
 
 app.get('/:location', (req, res) => {
-  const {location} = req.params.id
+  const { location } = req.params.location;
   client.search({
-    term:'Happy Hour',
-    location: location
+    term: 'bars',
+    location: 'Seattle',
   }).then(response => {
-    // const firstResult = response.jsonBody.businesses[0];
-    // const prettyJson = JSON.stringify(firstResult, null, 4);
-    console.log(prettresponse.jsonBodyyJson);
-    res.send(response.jsonBody.businesses)
+    const businesses = JSON.parse(response.body)
+    console.log(businesses.businesses);
+    res.send(businesses.businesses)
   }).catch(err => {
     console.log(err);
   });
