@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('/bars/seattle, WA')
+    axios.get('/bars/seattle')
       .then(response => {
         const allBars = response.data.sort((a, b) => {
           return (getDistance({ latitude: 47.5991664, longitude: -122.3331533 }, { latitude: a.venue.location.lat, longitude: a.venue.location.lng }) / 1609) - (getDistance({ latitude: 47.5991664, longitude: -122.3331533 }, { latitude: b.venue.location.lat, longitude: b.venue.location.lng }) / 1609)
