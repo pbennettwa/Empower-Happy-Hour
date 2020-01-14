@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import google from '../../data/google';
 import getDistance from 'geolib/es/getDistance';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import HappyHourList from './HappyHourList';
-
+import Map from './Map';
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +11,7 @@ class App extends Component {
 
     this.state = {
       bars: [],
-      position: [[47.5991664, -122.3331533]]
+      position: [47.5991664, -122.3331533]
     };
   }
 
@@ -36,24 +35,13 @@ class App extends Component {
     return (
       <div>
         <h1 className='title'>Empower Happy Hour</h1>
-        <HappyHourList bars={this.state.bars} />
-        <div id="mapid"></div>
-        <div className='mapid'>
-          <Map center={this.state.position[0]} zoom={13}>
-            <TileLayer
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-            />
-            {this.state.position.map((position, idx) =>
-              <Marker key={`marker-${idx}`} position={position}>
-                <Popup>
-                  <span>A pretty CSS3 popup. <br /> Easily customizable.</span>
-                </Popup>
-              </Marker>
-            )}
-          </Map>
-        </div>
-      </div>
+        <div className='container'>
+          <HappyHourList bars={this.state.bars} className='right' />
+          <div className='map'>
+            <Map position={this.state.position} />
+          </div>
+        </div >
+      </div >
     );
   }
 }
