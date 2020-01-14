@@ -7,7 +7,7 @@
   <style>
     .title {
       display: flex;
-      background-color: darkgray;
+      background-color: rgb(169, 169, 169);
       border-bottom: 1px;
       justify-content: center;
     }
@@ -20,16 +20,24 @@
       display: flex;
       justify-content: space-between;
       flex-direction: row;
+      height: 100%;
+      width: 100%;
     }
 
     .map {
       display: flex;
       align-content: center;
-      padding-right: 80px;
+      padding-right: 160px;
     }
 
     .google-map {
       position: absolute;
+    }
+
+    .list {
+      position: fixed;
+      height: 100%;
+      overflow-y: scroll;
     }
 
     .listing {
@@ -44,6 +52,11 @@
 
     .type {
       flex-grow: 4;
+    }
+
+    .info-one, .info-two {
+      height: 100%;
+      width: 100%;
     }
   </style>
 </head>

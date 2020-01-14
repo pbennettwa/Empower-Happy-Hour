@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       bars: [],
       startPosition: [47.5991664, -122.3331533],
-      position: [47.5991664, -122.3331533]
+      position: [47.5991664, -122.3331533],
+      currentName: ''
     };
 
     this.setPositionMarker = this.setPositionMarker(this);
@@ -40,7 +41,8 @@ class App extends Component {
     currentLocation[0] = JSON.parse(currentLocation[0]);
     currentLocation[1] = JSON.parse(currentLocation[1]);
     this.setState({
-      position: currentLocation
+      position: currentLocation,
+      currentName: event.target.innerText
     })
   }
 
@@ -56,12 +58,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className='full'>
         <h1 className='title'>Empower Happy Hour</h1>
         <div className='container'>
           <HappyHourList className='right' bars={this.state.bars} setPosition={this.setPosition} searchResults={this.searchResults} />
           <div className='map'>
-            <Map position={this.state.position} startPosition={this.state.startPosition} bars={this.state.bars} setPositionMarker={this.setPositionMarker} />
+            <Map position={this.state.position} startPosition={this.state.startPosition} bars={this.state.bars} setPositionMarker={this.setPositionMarker} currentName={this.state.currentName} />
           </div>
         </div >
       </div >
