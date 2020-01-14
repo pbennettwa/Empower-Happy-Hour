@@ -25,16 +25,6 @@ app.get('/bars/:location', (req, res) => {
       console.log(error);
       res.status(400).send();
     })
-  // client.search({
-  //   term: 'bars',
-  //   location: 'Seattle',
-  // }).then(response => {
-  //   const businesses = JSON.parse(response.body)
-  //   console.log(businesses.businesses);
-  //   res.send(businesses.businesses)
-  // }).catch(err => {
-  //   console.log(err);
-  // });
 });
 
 app.listen(port);

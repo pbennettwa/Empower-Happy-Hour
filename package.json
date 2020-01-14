@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server",
-    "build": "webpack -w",
+    "build": "webpack --progress --colors -d --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,11 +23,13 @@
     "axios": "^0.19.1",
     "express": "^4.17.1",
     "geolib": "^3.2.1",
+    "leaflet": "^1.6.0",
     "node": "^13.6.0",
     "nodemon": "^2.0.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-geolocated": "^3.0.1"
+    "react-leaflet": "^2.6.1",
+    "react-leaflet-control": "^2.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
