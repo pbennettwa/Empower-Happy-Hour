@@ -11,8 +11,13 @@ class App extends Component {
 
     this.state = {
       bars: [],
+      startPosition: [47.5991664, -122.3331533],
       position: [47.5991664, -122.3331533]
     };
+
+    this.setPositionMarker = this.setPositionMarker(this);
+    this.setPosition = this.setPosition.bind(this);
+    this.searchResults = this.searchResults.bind(this);
   }
 
   componentDidMount() {
@@ -28,7 +33,25 @@ class App extends Component {
       .catch(error => {
         console.log(error);
       });
+  }
 
+  setPosition(event) {
+    const currentLocation = event.target.attributes[1].value.split(',')
+    currentLocation[0] = JSON.parse(currentLocation[0]);
+    currentLocation[1] = JSON.parse(currentLocation[1]);
+    this.setState({
+      position: currentLocation
+    })
+  }
+
+  setPositionMarker(event) {
+    // console.dir(event)
+  }
+
+  searchResults(event) {
+    let currentBar = `${event.target.attributes[1].value} happy hour`;
+    currentBar = currentBar.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '').replace(/\s+/g, '+');
+    window.open(`http://www.google.com/search?q=${currentBar}`, '_blank')
   }
 
   render() {
@@ -36,9 +59,9 @@ class App extends Component {
       <div>
         <h1 className='title'>Empower Happy Hour</h1>
         <div className='container'>
-          <HappyHourList bars={this.state.bars} className='right' />
+          <HappyHourList className='right' bars={this.state.bars} setPosition={this.setPosition} searchResults={this.searchResults} />
           <div className='map'>
-            <Map position={this.state.position} />
+            <Map position={this.state.position} startPosition={this.state.startPosition} bars={this.state.bars} setPositionMarker={this.setPositionMarker} />
           </div>
         </div >
       </div >

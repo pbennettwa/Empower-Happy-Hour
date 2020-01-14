@@ -21,11 +21,25 @@
     .map {
       display: flex;
       align-content: center;
-      padding-right: 200px;
+      padding-right: 80px;
     }
 
     .google-map {
       position: absolute;
+    }
+
+    .listing {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-areas:
+        "name type"
+        "location"
+        "distance distance";
+      align-items: end;
+    }
+
+    .type {
+      flex-grow: 4;
     }
   </style>
 </head>
