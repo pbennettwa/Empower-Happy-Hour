@@ -21,7 +21,6 @@ app.get('/bars/:location', (req, res) => {
       var information = response.data.response.group.results
       Model.findOneAndUpdate(query, { area: city, info:information }, { upsert: true })
         .then(data => {
-          console.log(data);
         })
         .catch(error => {
           console.log(error);

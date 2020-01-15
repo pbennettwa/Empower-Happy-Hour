@@ -44,7 +44,8 @@ const Map = ({ startPosition, position, bars, setPositionMarker, currentName }) 
                   key={i}
                   position={location}
                   clusterer={clusterer}
-                  value={location}
+                  title={location.toString()}
+                  onClick={setPositionMarker}
                 />
               ))
             }
@@ -82,7 +83,8 @@ const Map = ({ startPosition, position, bars, setPositionMarker, currentName }) 
                   key={i}
                   position={location}
                   clusterer={clusterer}
-                  value={location}
+                  title={location.toString()}
+                  onClick={setPositionMarker}
                 />
               ))
             }

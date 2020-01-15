@@ -16,7 +16,7 @@ class App extends Component {
       currentName: ''
     };
 
-    this.setPositionMarker = this.setPositionMarker(this);
+    this.setPositionMarker = this.setPositionMarker.bind(this);
     this.setPosition = this.setPosition.bind(this);
     this.searchResults = this.searchResults.bind(this);
   }
@@ -47,7 +47,15 @@ class App extends Component {
   }
 
   setPositionMarker(event) {
-    // console.dir(event)
+    const newLocation = [event.latLng.lat(), event.latLng.lng()];
+    this.state.bars.forEach(bar => {
+      if (bar.venue.location.lat === newLocation[0] && bar.venue.location.lng === newLocation[1]) {
+        this.setState({
+          position: newLocation,
+          currentName: bar.venue.name
+        })
+      }
+    })
   }
 
   searchResults(event) {
