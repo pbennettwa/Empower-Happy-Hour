@@ -2,6 +2,10 @@
 
 > A map based MVP of a search app returning results of affordable bars nearby
 
+## Screenshot
+
+![Happy Hour Empowered](screenshot.png)
+
 ## Usage
 
 ```bash
