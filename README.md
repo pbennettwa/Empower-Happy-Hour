@@ -1,6 +1,6 @@
 # Happy-Hour-Empowered
 
-> A map based MVP search app returning results of affordable bars nearby
+> A map based MVP of a search app returning results of affordable bars nearby
 
 ## Usage
 
