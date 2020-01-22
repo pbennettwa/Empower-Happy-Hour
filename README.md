@@ -1,10 +1,10 @@
-# Happy-Hour-Empowered
+# Empower-Happy-Hour
 
 > A map based MVP of a search app returning results of affordable bars nearby
 
 ## Screenshot
 
-![Happy Hour Empowered](screenshot.png)
+![Empower Happy Hour](screenshot.png)
 
 ## Usage
 
